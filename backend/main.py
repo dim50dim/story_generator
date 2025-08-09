@@ -9,12 +9,13 @@ app = FastAPI(
     redoc_url="redoc",
 )
 
+
 # Define allowed origins
-origins = [
-    "http://localhost:3000",  # React/Next.js local dev
-    "http://127.0.0.1:3000",
-    "https://yourdomain.com"  # Production domain
-]
+# origins = [
+#     "http://localhost:3000",  # React/Next.js local dev
+#     "http://127.0.0.1:3000",
+#     "https://yourdomain.com"  # Production domain
+# ]
 
 # Add CORS middleware
 app.add_middleware(
@@ -28,3 +29,7 @@ app.add_middleware(
 @app.get("/")
 def read_root():
     return {"message": "Hello from FastAPI with CORS!"}
+
+if __name__ == "__main__":
+    import uvicorn 
+    uvicorn.run("main:app",host="0.0.0.0",port=8000,reload=True)
