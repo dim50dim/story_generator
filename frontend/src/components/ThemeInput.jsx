@@ -4,7 +4,7 @@ const ThemeInput = ({onSubmit}) => {
     const [theme,setTheme] = useState("")
     const [error,setError] = useState("")
 
-    const handleSubmit(e) =>{
+    const handleSubmit = (e) =>{
         e.preventDefault()
 
         if(!theme.trim()){
