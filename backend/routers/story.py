@@ -13,17 +13,18 @@ from schemas.story import (
 from schemas.job import StoryJobResponse
 from core.story_generator import StoryGenerator
 
-
 router = APIRouter(
-    prefix='/stories',
+    prefix="/stories",
     tags=["stories"]
 )
-def get_session_id(session_id:Optional[str]=Cookie(None)):
+
+def get_session_id(session_id: Optional[str] = Cookie(None)):
     if not session_id:
         session_id = str(uuid.uuid4())
-    return session_id    
+    return session_id
 
-@router.post("/create",response_model=StoryJobResponse)    
+
+@router.post("/create", response_model=StoryJobResponse)
 def create_story(
         request: CreateStoryRequest,
         background_tasks: BackgroundTasks,
@@ -116,4 +117,4 @@ def build_complete_story_tree(db: Session, story: Story) -> CompleteStoryRespons
         created_at=story.created_at,
         root_node=node_dict[root_node.id],
         all_nodes=node_dict
-    )        
+    )
