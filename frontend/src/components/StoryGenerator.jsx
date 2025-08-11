@@ -99,4 +99,4 @@ function StoryGenerator() {
     </div>
 }
 
-export default StoryGenerator
+export default StoryGenerator;
