@@ -18,7 +18,9 @@ const StoryLoader = () => {
             setStory(response.data)
             setLoading(false)
         }catch(err){
-             
+              setError("Failed to load story")
+        }finally{
+            setLoading(false)
         }
 
     }
